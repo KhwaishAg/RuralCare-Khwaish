@@ -1,30 +1,58 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
-  const [menu,setMenu]=useState("shop");
+  const [menu,setMenu]=useState("home");
   return (
     <div>
        <div className='navbar'>
             <div className="nav-logo">
                 <img src={logo} alt="" />
-                <p>SHOPPER</p>
+                <p>CODE CURE</p>
             </div>
-
+            
             <ul className='nav-menu'>
-                <li onClick={()=>setMenu("shop")}><Link to='/' style={{textDecoration: 'none'}}>Shop</Link>{menu==="shop"?<hr/>:<></>}</li>
-                <li onClick={()=>setMenu("mens")}><Link to='/mens'  style={{textDecoration: 'none'}}>Men</Link>{menu==="mens"?<hr/>:<></>}</li>
-                <li onClick={()=>setMenu("womens")}><Link to='/womens' style={{textDecoration: 'none'}}>Women</Link>{menu==="womens"?<hr/>:<></>}</li>
-                <li onClick={()=>setMenu("kids")}><Link to='/kids' style={{textDecoration: 'none'}}>Kids</Link>{menu==="kids"?<hr/>:<></>}</li>
-            </ul> 
+            <li 
+              className={menu === "Home" ? "active" : ""} 
+              onClick={() => setMenu("Home")}
+            >
+              <Link to='/' style={{ textDecoration: 'none' }}>Home</Link>
+            </li>
 
-            <div className='nav-login-cart'>
-                <Link to='/login'><button>Login</button></Link>
-                <Link to='/cart'><img src={cart_icon} alt=""></img></Link>
-                <div className="nav-cart-count">0</div>
+            <li 
+              className={menu === "About" ? "active" : ""} 
+              onClick={() => setMenu("About")}
+            >
+              <Link to='/about' style={{ textDecoration: 'none' }}>About</Link>
+            </li>
+
+            <li 
+              className={menu === "FAQ" ? "active" : ""} 
+              onClick={() => setMenu("FAQ")}
+            >
+              <Link to='/faq' style={{ textDecoration: 'none' }}>FAQ</Link>
+            </li>
+
+            <li 
+              className={menu === "Schemes" ? "active" : ""} 
+              onClick={() => setMenu("Schemes")}
+            >
+              <Link to='/scheme' style={{ textDecoration: 'none' }}>Scheme</Link>
+            </li>
+
+            <li 
+              className={menu === "Support" ? "active" : ""} 
+              onClick={() => setMenu("Support")}
+            >
+              <Link to='/support' style={{ textDecoration: 'none' }}>Support</Link>
+            </li>
+          </ul>
+
+
+            <div className='nav-login'>
+                <Link to='/login'><button>Login/SignUp</button></Link>
             </div>
         </div> 
     </div>
