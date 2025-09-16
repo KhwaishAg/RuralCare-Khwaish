@@ -1,0 +1,87 @@
+/* Background Overlay */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(200, 200, 200, 0.6); /* greyish */
+  backdrop-filter: blur(6px);
+  z-index: 50;
+}
+
+/* Modal Box */
+.login-modal {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 18px;
+  width: 440px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #555;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.close-btn:hover {
+  transform: scale(1.2);
+  color: #000;
+}
+
+/* Choice Section */
+.choice-container {
+  text-align: center;
+  padding: 1.2rem 0;
+}
+
+.choice-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.choice-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.choice-btn {
+  background: #4b5563; /* dark grey */
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.choice-btn:hover {
+  background: #374151; /* darker grey */
+  transform: translateY(-3px);
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
