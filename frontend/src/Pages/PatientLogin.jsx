@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export const PatientLogin = ({ onClose }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +22,7 @@ export const PatientLogin = ({ onClose }) => {
       const data = await res.json();
       if (res.ok) {
         setMessage("✅ Login Successful");
+        navigate("/dashboard");
       } else {
         setMessage(data.message);
       }
